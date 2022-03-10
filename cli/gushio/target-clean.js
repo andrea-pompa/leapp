@@ -1,3 +1,5 @@
+const deleteFunction = require("./delete-func");
+const path = require("path");
 module.exports = {
   cli: {
     name: 'clean',
@@ -11,6 +13,7 @@ module.exports = {
     try {
       console.log('Performing cleanup... ')
       await deleteFunction(path,'../dist')
+      await deleteFunction(path,'../tmp')
       console.log('Cleanup completed successfully')
     }
     catch (e) {

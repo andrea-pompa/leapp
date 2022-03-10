@@ -11,7 +11,7 @@ module.exports = {
     const path = require('path')
     const shellJs = require('shelljs')
     try {
-      await gushio.run(path.join(__dirname, './target-build.js'), ...args)
+      await gushio.run(path.join(__dirname, './target-build.js'), args)
 
       console.log('Launching leapp... ')
       const result = shellJs.exec('electron --enable-accelerated-mjpeg-decode --enable-accelerated-video --ignore-gpu-blacklist --enable-native-gpu-memory-buffers --enable-gpu-rasterization --ignore-gpu-blacklist .')

@@ -42,7 +42,11 @@
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true,
-            "allowedCommonJsDependencies": ["stream", "assert", "fs"]
+            "allowedCommonJsDependencies": [
+              "stream",
+              "assert",
+              "fs"
+            ]
           },
           "configurations": {
             "staging": {
@@ -62,8 +66,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "10mb",
+                  "maximumError": "15mb"
                 }
               ]
             },
@@ -84,8 +88,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "10mb",
+                  "maximumError": "15mb"
                 }
               ]
             }
@@ -159,6 +163,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "leapp-client"
 }

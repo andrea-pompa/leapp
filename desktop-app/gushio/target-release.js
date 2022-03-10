@@ -13,7 +13,7 @@ module.exports = {
     const path = require('path')
     const shellJs = require('shelljs')
     try {
-      await gushio.run(path.join(__dirname, './target-build.js'), args[0])
+      await gushio.run(path.join(__dirname, './target-build.js'), [args[0]])
 
       console.log('Packaging leapp... ')
       const platformVersion = args[1] === 'mac'

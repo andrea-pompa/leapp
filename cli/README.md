@@ -16,11 +16,11 @@ Leapp's Command Line Interface.
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g leapp
+$ npm install -g @noovolari/leapp-cli
 $ leapp COMMAND
 running command...
 $ leapp (--version)
-leapp/0.1.0 darwin-x64 node-v16.14.0
+@noovolari/leapp-cli/0.1.0 darwin-x64 node-v16.14.0
 $ leapp --help [COMMAND]
 USAGE
   $ leapp COMMAND

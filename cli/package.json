@@ -1,5 +1,5 @@
 {
-  "name": "leapp",
+  "name": "@noovolari/leapp-cli",
   "description": "Leapp's Command Line Interface",
   "version": "0.1.0",
   "author": "besharp <info@besharp.it>",

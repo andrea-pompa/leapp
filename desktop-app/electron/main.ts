@@ -1,7 +1,13 @@
 import * as path from "path";
 import { environment } from "../src/environments/environment";
-
 const { app, BrowserWindow, globalShortcut, ipcMain, Tray, Menu } = require("electron");
+
+if (process.argv.includes("cli")) {
+  app.dock.hide()
+  console.log("Hello from CLI!");
+  process.exit(0);
+}
+
 const { autoUpdater } = require("electron-updater");
 
 const url = require("url");
@@ -157,7 +163,11 @@ const generateMainWindow = () => {
     trayWin.setMenuBarVisibility(false); // Hide Window Menu to make it compliant with MacOSX
     trayWin.removeMenu(); // Remove Window Menu inside App, to make it compliant with Linux
     trayWin.setMenu(null);
-    trayWin.loadURL(url.format({ pathname: windowDefaultConfig.dir + "/index.html", protocol: "file:", slashes: true }));
+    trayWin.loadURL(url.format({
+      pathname: windowDefaultConfig.dir + "/index.html",
+      protocol: "file:",
+      slashes: true
+    }));
 
     const taskbarWidth = 362;
     const taskbarHeight = 480;
