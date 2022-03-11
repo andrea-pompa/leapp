@@ -4,6 +4,7 @@ import { INativeService } from "../../../interfaces/i-native-service";
 import { ISessionNotifier } from "../../../interfaces/i-session-notifier";
 import { AwsSsoRoleSession } from "../../../models/aws-sso-role-session";
 import { CredentialsInfo } from "../../../models/credentials-info";
+import { Session } from "../../../models/session";
 import { AwsCoreService } from "../../aws-core-service";
 import { FileService } from "../../file-service";
 import { KeychainService } from "../../keychain-service";
@@ -148,6 +149,14 @@ export class AwsSsoRoleService extends AwsSessionService implements BrowserWindo
     const credentials = await this.awsIntegrationDelegate.getRoleCredentials(accessToken, region, roleArn);
 
     return AwsSsoRoleService.sessionTokenFromGetSessionTokenResponse(credentials);
+  }
+
+  async getAccountNumberFromCallerIdentity(session: Session): Promise<string> {
+    if (session instanceof AwsSsoRoleSession) {
+      return `${session.roleArn.split("/")[0].substring(13, 25)}`;
+    } else {
+      throw new Error("AWS SSO Role Session required");
+    }
   }
 
   sessionDeactivated(sessionId: string): void {

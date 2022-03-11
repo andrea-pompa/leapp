@@ -20,7 +20,7 @@ $ npm install -g leapp
 $ leapp COMMAND
 running command...
 $ leapp (--version)
-leapp/0.1.0 darwin-x64 node-v16.14.0
+leapp/0.1.0 win32-x64 node-v16.14.0
 $ leapp --help [COMMAND]
 USAGE
   $ leapp COMMAND
@@ -48,6 +48,7 @@ USAGE
 * [`leapp region set-default`](#leapp-region-set-default)
 * [`leapp session add`](#leapp-session-add)
 * [`leapp session change-region`](#leapp-session-change-region)
+* [`leapp session current`](#leapp-session-current)
 * [`leapp session delete`](#leapp-session-delete)
 * [`leapp session generate SESSIONID`](#leapp-session-generate-sessionid)
 * [`leapp session get_id`](#leapp-session-get_id)
@@ -379,6 +380,31 @@ DESCRIPTION
 
 EXAMPLES
   $leapp session change-region
+```
+
+## `leapp session current`
+
+Provides info about the current active session for a selected profile (if no profile is provided it uses default profile)
+
+```
+USAGE
+  $ leapp session current [-i] [-p <value>] [-r aws|azure] [-f <value>]
+
+FLAGS
+  -f, --format=<value>     allows filtering data to show
+                           - aws -> alias, accountNumber, roleArn
+                           - azure -> tenantId, subscriptionId
+  -i, --inline
+  -p, --profile=<value>    [default: default] aws named profile of which gets info
+  -r, --provider=<option>  filters sessions by the cloud provider service
+                           <options: aws|azure>
+
+DESCRIPTION
+  Provides info about the current active session for a selected profile (if no profile is provided it uses default
+  profile)
+
+EXAMPLES
+  $leapp session current
 ```
 
 ## `leapp session delete`

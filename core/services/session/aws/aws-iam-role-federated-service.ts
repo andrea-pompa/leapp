@@ -6,6 +6,7 @@ import { IAwsAuthenticationService } from "../../../interfaces/i-aws-authenticat
 import { ISessionNotifier } from "../../../interfaces/i-session-notifier";
 import { AwsIamRoleFederatedSession } from "../../../models/aws-iam-role-federated-session";
 import { CredentialsInfo } from "../../../models/credentials-info";
+import { Session } from "../../../models/session";
 import { AwsCoreService } from "../../aws-core-service";
 import { FileService } from "../../file-service";
 import { Repository } from "../../repository";
@@ -147,6 +148,14 @@ export class AwsIamRoleFederatedService extends AwsSessionService {
 
     // Generate credentials
     return AwsIamRoleFederatedService.sessionTokenFromGetSessionTokenResponse(assumeRoleWithSamlResponse);
+  }
+
+  async getAccountNumberFromCallerIdentity(session: Session): Promise<string> {
+    if (session instanceof AwsIamRoleFederatedSession) {
+      return `${session.roleArn.split("/")[0].substring(13, 25)}`;
+    } else {
+      throw new Error("AWS IAM Role Federated Session required");
+    }
   }
 
   removeSecrets(_: string): void {}

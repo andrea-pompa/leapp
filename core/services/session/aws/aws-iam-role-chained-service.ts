@@ -119,6 +119,14 @@ export class AwsIamRoleChainedService extends AwsSessionService {
 
   removeSecrets(_: string): void {}
 
+  async getAccountNumberFromCallerIdentity(session: Session): Promise<string> {
+    if (session instanceof AwsIamRoleChainedSession) {
+      return `${session.roleArn.split("/")[0].substring(13, 25)}`;
+    } else {
+      throw new Error("AWS IAM Role Chained Session required");
+    }
+  }
+
   private async generateSessionToken(sts, params): Promise<CredentialsInfo> {
     try {
       // Assume Role

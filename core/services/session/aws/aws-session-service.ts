@@ -119,6 +119,8 @@ export abstract class AwsSessionService extends SessionService {
     });
   }
 
+  abstract getAccountNumberFromCallerIdentity(session: Session): Promise<string>;
+
   abstract generateCredentials(sessionId: string): Promise<CredentialsInfo>;
 
   abstract applyCredentials(sessionId: string, credentialsInfo: CredentialsInfo): Promise<void>;
