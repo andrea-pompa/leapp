@@ -150,7 +150,7 @@
     "@sebgroup/magic-iframe": "1.1.2",
     "@types/jest": "~26.0.23",
     "assert": "2.0.0",
-    "aws-sdk": "2.928.0",
+    "aws-sdk": "2.1167.0",
     "aws-sdk-mock": "5.3.0",
     "bootstrap": "~4.6.0",
     "chdir": "0.0.0",
