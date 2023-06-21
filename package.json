@@ -196,7 +196,7 @@
     "rimraf": "~3.0.2",
     "rxjs": "~6.6.7",
     "saml-encoder-decoder-js": "~1.0.1",
-    "semver": "~7.3.5",
+    "semver": "~7.5.2",
     "six": "0.0.12",
     "standard-version": "^9.3.0",
     "stream-browserify": "3.0.0",
